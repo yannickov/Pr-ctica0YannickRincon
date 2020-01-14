@@ -1,0 +1,20 @@
+// Codigo número 1
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+    int i = 10;                  //Se declara una variable tipo int y se le asigna el valor 10
+    float a = 1000.0;            //Se declara una variable tipo float y se le asigna el valor 1000.0
+    
+    while(i > 0)                 //Se aplica un ciclo while para cuando i sea mayor a cero. Dadas las condiciones iniciales, el ciclo se inicia
+    {
+        i /= 2;                  //El valor de i se va dividiendo por 2
+        a /= 10;                 // El valor de a se va dividiendo por 10
+    }
+                                 //El ciclo termina cuando i vale 1 y se divide por 2. Como es una variable tipo int, sólo queda el 0. 
+                                 //Esto hace que el ciclo termine
+    cout<<"El valor final de la variable 'a' es: "<<a<<endl;    //El valor final de 'a' es 0.1 ya que se dividió 4 veces por 10
+    return 0;
+}
