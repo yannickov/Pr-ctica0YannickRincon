@@ -1,0 +1,29 @@
+#include<iostream>
+
+using namespace std;
+
+int testFunction(int num1, int num2)
+{
+	int suma_pre = 0;
+	
+	while(num2 >= 0)
+	{
+	    int cuenta = 0;
+	    
+	    while(cuenta <= num2)
+	    {
+	        suma_pre += num1;                     //Esta línea y la de abajo son las que más se ejecutan. Esto por estar
+	        ++cuenta;                             //En un doble ciclo while
+	    }
+	    
+	    --num2;
+	}
+	
+	return suma_pre;
+}
+
+int main()
+{
+    int resultado = testFunction(3, 10);
+    std::cout << "Resultado: " << resultado << std::endl;
+}
