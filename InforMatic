@@ -1,0 +1,24 @@
+#include<iostream>
+
+using namespace std;
+
+void inforMatic(int num)
+{
+    string contenedor="";                        //Creo una variable contenedora para alojar los strings
+	if (num%3==0){                                 //Condicional si el número es múltiplo de 3
+	    contenedor=contenedor+"Infor";
+	}
+	if(num%5==0){                                   //Condicional si el número es múltiplo de 5
+	    contenedor=contenedor+"Matic";
+	}
+    	if (num%3!=0 and num%5!=0){                 //Condicional si el número no es múltiplo de ninguno de los dos
+	    cout<<num<<endl;
+	}
+	cout<<contenedor<<endl;
+}
+
+int main()
+{
+        for(int i=0; i<21; ++i)
+        inforMatic(i);
+}
