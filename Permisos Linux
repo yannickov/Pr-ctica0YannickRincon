@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+#include<math.h>
+
+using namespace std;
+
+int decodePermits(const string& permits)
+{
+	int respuesta=0;                          //Creo varias variables para usar en los ciclos for que recorrerán los strings
+	int k=3;
+	int d;
+	int potencia=2;
+	for (int i=0;i<=2;++i){                   //Este primer for es para recorrer grupos de caracteres del string
+	    int g=0;
+	    int j=i*k;
+	    for (j;j<=(k*i+2);++j){               //Este segundo for recorre caracter por caracter evaluando la letra y sumándole
+	        char test=permits[j];             //el valor numérico correspondiene a una variable int vacía
+	        if(test==114){
+	            g=g+4;
+	        }
+	        if(test==119){
+	            g=g+2;
+	        }
+	        if(test==120){
+	            g=g+1;
+	        }
+	    }
+	    respuesta=respuesta+(g*(pow(10,potencia)));     //La variable int que recibió la suma de los valores del grupo de tres
+	    potencia=potencia-1;                            //caracteres, se eleva a la potencia correspondiente y se aloja en 
+	}                                                    //la variable de respuesta
+	return(respuesta);
+}
+
+int main()
+{
+    string permit1 = "rw-r--r--";
+    string permit2 = "rwxr-x--x";
+    string allpermits = "rwxrwxrwx";
+    
+    std::cout << decodePermits(permit1) << std::endl;
+    std::cout << decodePermits(permit2) << std::endl;
+    std::cout << decodePermits(allpermits) << std::endl;
+    
+    return 0;
+}
