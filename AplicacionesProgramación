@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+void cifraData(int arr[], int rondas,int size)
+{
+    int cont=1;                                     //declaro algunas variables para los ciclos
+    int size1=size-1;
+    cout<<"La trama es la siguiente: {";
+    for (int y=0;y<=size1;++y){                       //imprimo la trama de manera recursiva con un ciclo for
+        cout<<arr[y]<<",";
+    }
+    cout<<"}"<<endl<<"Número de rondas de actualización: "<<rondas<<endl;    //Mensajes requeridos en el problema
+    cout<<"La trama que se obtiene es la siguiente:"<<endl;
+    for (int i=1;i<=rondas;++i){                                        //Ciclo for para realizar el procedimiento n rondas
+        int auxarr[size];                                         //ciclo for para crear un arreglo auxiliar
+        for (int u=0;u<=size1;++u){
+            auxarr[u]=arr[u];
+        }
+        arr[0]=auxarr[size1]-auxarr[1];                           //cifrado de los elementos en primera y última posición 
+        arr[size1]=auxarr[size1-1]+auxarr[0];
+        for (int j=2;j<=(size1-1);j=j+2){                         //Cifrado de los elementos pares
+            arr[j]=auxarr[j-1]-auxarr[j+1];
+        }
+        for(int k=1;k<=(size1-2);k=k+2){                          //Cifrado de los elementos impares
+            arr[k]=auxarr[k-1]+auxarr[k+1];
+        }
+    cout<<"ronda "<<cont<<":"<<endl<<"{";                         //Impresión recursiva de las nuevas tramas
+    for (int t=0;t<=size1;++t){
+        cout<<arr[t]<<",";
+    }
+    cout<<"}"<<endl;
+    cont=cont+1;
+    }
+}
+
+int main()
+{
+    int trama[6]={1,45,92,216,28,63}; //Trama de ejemplo
+    int size=sizeof(trama)/sizeof(int);
+    cifraData(trama, 3,size); // Llamado de ejemplo
+    return 0;
+}
